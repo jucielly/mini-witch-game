@@ -6,14 +6,14 @@ class Animation {
         this.height = height
         this.x = x
         this.y = height - this.height
-        this.spriteHeight = this.spriteHeight
-        this.spriteWidth = this.spriteWidth
+        this.spriteHeight = spriteHeight
+        this.spriteWidth = spriteWidth
 
         this.ActualFrame = 0
     }
 
     show() {
-        image(this.image, this.x, this.height, this.width, this.height, this.matriz[this.ActualFrame][0], this.matriz[this.ActualFrame][1], this.spriteWidth, this.spriteHeight)
+        image(this.image, this.x, this.height, this.width, this.height, this.matriz[this.ActualFrame][0], this.matriz[this.ActualFrame][1] ,this.spriteWidth, this.spriteHeight)
         this.animation()
     }
 
