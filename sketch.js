@@ -17,6 +17,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   cenario = new Cenario(backgroundImage, 2)
   character = new Character(characterImage)
+  frameRate(30)
   gameMusic.loop()
 
 }

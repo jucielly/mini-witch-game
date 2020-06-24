@@ -18,14 +18,20 @@ class Character {
             [220, 810],
             [440, 810],
             [660, 810],
-          ] 
+        ]
+        this.ActualFrame = 0
     }
 
     show() {
-        image(this.image, 0, height - hipstaHeight, 110, hipstaHeight, 0, 0, 220, 270)
+        image(this.image, 0, height - hipstaHeight, 110, hipstaHeight, this.matriz[this.ActualFrame][0], this.matriz[this.ActualFrame][1], 220, 270)
+        this.animation()
     }
 
     animation() {
+        this.ActualFrame++
 
+        if(this.ActualFrame >= this.matriz.length - 1) {
+           this.ActualFrame = 0
+        }
     }
 }
