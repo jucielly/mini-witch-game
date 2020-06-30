@@ -10,7 +10,10 @@ class Character extends Animation {
     }
 
     jump() {
-        this.jumpSpeed = -40
+        console.log(this.y)
+        if( this.y > windowHeight / 3) {
+            this.jumpSpeed = -40
+        }
     }
 
 
