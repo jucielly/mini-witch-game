@@ -70,18 +70,26 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   cenario = new Cenario(backgroundImage, 2)
-  character = new Character(characterImage)
-  enemy = new Enemy(enemyMatriz, enemyImage, width -52,52, 52, 104, 104)
+  character = new Character(characterMatriz, characterImage, 0, 110, hipstaHeight, 220, 270)
+  enemy = new Enemy(enemyMatriz, enemyImage, width - 52, 52, 52, 104, 104)
   frameRate(30)
   gameMusic.loop()
 
 }
 
+function keyPressed() {
+  if (key === "ArrowUp") {
+    character.jump()
+  }
+}
+
 function draw() {
   cenario.show();
   character.show();
+  character.applyPhysics()
   enemy.show()
   enemy.move()
   cenario.move();
+
 }
 
