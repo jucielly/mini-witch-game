@@ -1,6 +1,6 @@
 class Character extends Animation {
-    constructor(matriz, image, x, width, Height, spriteWidth, spriteHeight) {
-        super(matriz, image, x, width, Height, spriteWidth, spriteHeight)
+    constructor(matriz, image, x, Width, Height, spriteWidth, spriteHeight) {
+        super(matriz, image, x, Width, Height, spriteWidth, spriteHeight)
 
         this.baseY = height - this.Height
         this.y = this.baseY
@@ -10,7 +10,7 @@ class Character extends Animation {
     }
 
     jump() {
-        this.jumpSpeed = -50 
+        this.jumpSpeed = -40
     }
 
 
@@ -19,8 +19,26 @@ class Character extends Animation {
         this.jumpSpeed = this.jumpSpeed + this.physics
 
         if (this.y > this.baseY) {
-           this.y = this.baseY
+            this.y = this.baseY
         }
+    }
+
+    isCrashing(enemy) {
+        const precision = .7
+        const collide = collideRectRect(
+            //rect(this.x, this.y, this.width, this.Height),
+            //rect(enemy.x, enemy.y, enemy.width, enemy.Height),
+            this.x,
+            this.y,
+            this.width * precision,
+            this.Height * precision,
+            enemy.x,
+            enemy.y,
+            enemy.width * precision,
+            enemy.Height * precision,
+
+        )
+        return collide
     }
 
 }

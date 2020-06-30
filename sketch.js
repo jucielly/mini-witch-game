@@ -4,6 +4,7 @@ let backgroundImage;
 let characterImage;
 let cenario;
 let gameMusic;
+let jumpMusic;
 let character;
 let enemyImage;
 let enemy;
@@ -62,7 +63,8 @@ function preload() {
   backgroundImage = loadImage('imagens/cenario/floresta.png')
   characterImage = loadImage("imagens/personagem/correndo.png")
   enemyImage = loadImage("imagens/inimigos/gotinha.png")
-  gameMusic = loadSound("sons/trilha_jogo.mp3")
+  gameMusic = loadSound("sons/MAZE.mp3")
+  jumpMusic = loadSound("sons/jump.wav")
 
 }
 
@@ -80,6 +82,7 @@ function setup() {
 function keyPressed() {
   if (key === "ArrowUp") {
     character.jump()
+    jumpMusic.play()
   }
 }
 
@@ -90,6 +93,12 @@ function draw() {
   enemy.show()
   enemy.move()
   cenario.move();
+
+
+  if(character.isCrashing(enemy)){
+    console.log("bateu")
+    noLoop()
+  }
 
 }
 
