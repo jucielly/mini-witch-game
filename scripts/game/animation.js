@@ -1,19 +1,20 @@
 class Animation {
-    constructor(matriz, image, x,width, height, spriteWidth, spriteHeight) {
+    constructor(matriz, image, x, width, Height, spriteWidth, spriteHeight) {
         this.matriz = matriz
         this.image = image
         this.width = width
-        this.height = height
+        this.Height = Height
         this.x = x
-        this.y = height - this.height
+        this.y = height - this.Height
         this.spriteHeight = spriteHeight
         this.spriteWidth = spriteWidth
+
 
         this.ActualFrame = 0
     }
 
     show() {
-        image(this.image, this.x, this.height, this.width, this.height, this.matriz[this.ActualFrame][0], this.matriz[this.ActualFrame][1] ,this.spriteWidth, this.spriteHeight)
+        image(this.image, this.x, this.y, this.width, this.Height, this.matriz[this.ActualFrame][0], this.matriz[this.ActualFrame][1], this.spriteWidth, this.spriteHeight)
         this.animation()
     }
 
